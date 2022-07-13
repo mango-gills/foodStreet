@@ -11,7 +11,9 @@ const FeaturedBlog = () => {
   }, []);
 
   const randomizedBlog = async () => {
-    const { data } = await axios.get("http://localhost:5000/blogs");
+    const { data } = await axios.get(
+      "https://food-street-api.herokuapp.com/blogs"
+    );
     const shuffled = data.sort(() => Math.random() - 0.5);
     setRandomBlogs(shuffled);
   };

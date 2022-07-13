@@ -30,7 +30,9 @@ const PostBlog = () => {
 
   const confirmHandler = async () => {
     createBlogSuccessful();
-    await axios.post("http://localhost:5000/blogs", blog).then((res) => {});
+    await axios
+      .post("https://food-street-api.herokuapp.com/blogs", blog)
+      .then((res) => {});
     setTimeout(() => {
       window.location.reload();
     }, 3000);

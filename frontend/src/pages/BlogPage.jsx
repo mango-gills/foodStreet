@@ -23,7 +23,9 @@ const BlogPage = () => {
   }, []);
 
   const getBlogDataFromApi = async () => {
-    const { data } = await axios.get("http://localhost:5000/blogs/" + id);
+    const { data } = await axios.get(
+      "https://food-street-api.herokuapp.com/blogs/" + id
+    );
     setBlogData(data);
     setNewLocation(data.location);
     setImageUrl(data.image_url);
@@ -35,7 +37,7 @@ const BlogPage = () => {
 
   const confirmHandler = async () => {
     await axios
-      .delete("http://localhost:5000/blogs/" + id, blog)
+      .delete("https://food-street-api.herokuapp.com/blogs/" + id, blog)
       .then((res) => {});
     deleteBlogSuccessful();
     setTimeout(() => {
