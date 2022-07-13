@@ -20,7 +20,9 @@ function App() {
     const { data } = await axios.get(
       "https://food-street-api.herokuapp.com/blogs"
     );
-    setBlogs(data);
+    if (data) {
+      setBlogs(data);
+    }
   };
 
   return (
