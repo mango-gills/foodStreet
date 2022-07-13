@@ -19,7 +19,9 @@ const UpdateBlog = () => {
   }, []);
 
   const getBlogDataFromApi = async () => {
-    const { data } = await axios.get("http://localhost:5000/blogs/" + id);
+    const { data } = await axios.get(
+      "https://food-street-api.herokuapp.com/blogs/" + id
+    );
     setBlogData(data);
     setTitle(data.title);
     setBody(data.body);
@@ -32,7 +34,7 @@ const UpdateBlog = () => {
     e.preventDefault();
 
     await axios.put(
-      "http://localhost:5000/blogs/" + id,
+      "https://food-street-api.herokuapp.com/blogs/" + id,
       JSON.stringify({ username, title, body, location, image_url }),
       {
         headers: {
