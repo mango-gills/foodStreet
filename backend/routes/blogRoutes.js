@@ -8,7 +8,7 @@ const { getBlogs, createBlog, updateBlog, deleteBlog, getBlogById } =
 
 router.get("/", getBlogs);
 router.get("/:id", getBlogById);
-router.post("/blog", createBlog);
-router.post("/post/:id", updateBlog);
-router.delete("/post/:id", deleteBlog);
+router.post("/", createBlog);
+router.put("/:id", updateBlog);
+router.delete("/:id", deleteBlog);
 export default router;

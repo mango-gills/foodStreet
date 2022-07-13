@@ -31,19 +31,16 @@ const UpdateBlog = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    await axios
-      .post(
-        "http://localhost:5000/blogs/post/" + id,
-        JSON.stringify({ username, title, body, location, image_url }),
-        {
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      )
-      .then((res) => {
-        console.log("Post updated successfully.");
-      });
+    await axios.put(
+      "http://localhost:5000/blogs/" + id,
+      JSON.stringify({ username, title, body, location, image_url }),
+      {
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+
     window.location.href = "/";
   };
 

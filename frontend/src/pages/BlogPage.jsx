@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ModalComponent from "../components/ModalComponent";
 import Sidebar from "../components/Sidebar";
@@ -9,12 +11,12 @@ import Sidebar from "../components/Sidebar";
 const BlogPage = () => {
   const [blogData, setBlogData] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [remove, setRemove] = useState(false);
   const [newLocation, setNewLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const removePost = { remove, setRemove };
   const { title, body, username, date } = blogData;
   const { id } = useParams();
+
+  const blog = { title, body, username, location, imageUrl };
 
   useEffect(() => {
     getBlogDataFromApi();
@@ -28,8 +30,28 @@ const BlogPage = () => {
   };
 
   const deleteHandler = () => {
-    setRemove(true);
     setModalIsOpen(true);
+  };
+
+  const confirmHandler = async () => {
+    await axios
+      .delete("http://localhost:5000/blogs/" + id, blog)
+      .then((res) => {});
+    deleteBlogSuccessful();
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 3000);
+  };
+
+  const deleteBlogSuccessful = () => {
+    toast.info("Post deleted! Returning to home.", {
+      autoClose: 2000,
+      pauseOnHover: false,
+      closeOnClick: true,
+      theme: "colored",
+      pauseOnFocusLoss: false,
+      position: "top-center",
+    });
   };
 
   const modalMessage = "delete";
@@ -70,12 +92,12 @@ const BlogPage = () => {
         </button>
       </div>
       <ModalComponent
-        id={id}
-        removePost={removePost}
+        confirmHandler={confirmHandler}
         modalMessage={modalMessage}
         modalIsOpen={modalIsOpen}
         setModalIsOpen={setModalIsOpen}
       />
+      <ToastContainer />
     </main>
   );
 };

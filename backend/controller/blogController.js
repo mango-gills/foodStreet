@@ -33,12 +33,10 @@ const createBlog = (req, res) => {
     );
 };
 
-// POST Request for update - Temporary solution only.
-
 const updateBlog = (req, res) => {
   const id = req.params.id;
 
-  Blogs.findById(id).then((blog) => {
+  Blogs.findByIdAndUpdate(id).then((blog) => {
     blog.username = req.body.username;
     blog.title = req.body.title;
     blog.body = req.body.body;

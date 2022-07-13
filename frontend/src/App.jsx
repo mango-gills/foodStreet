@@ -30,7 +30,7 @@ function App() {
           <h3>Recent Posts</h3>
           {blogs.slice(0, 5).map((post) => (
             <Link
-              to={`/blog/${post._id}`}
+              to={`/blogs/${post._id}`}
               className="blog-page-link"
               key={post._id}
             >

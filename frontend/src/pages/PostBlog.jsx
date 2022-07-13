@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 import FileBase64 from "react-file-base64";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ModalComponent from "../components/ModalComponent";
 
@@ -22,9 +25,25 @@ const PostBlog = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
     setModalIsOpen(true);
-    setSave(true);
+  };
+
+  const confirmHandler = async () => {
+    createBlogSuccessful();
+    await axios.post("http://localhost:5000/blogs", blog).then((res) => {});
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+  };
+
+  const createBlogSuccessful = () => {
+    toast.success("Post Saved!", {
+      autoClose: 2000,
+      pauseOnHover: false,
+      closeOnClick: true,
+      pauseOnFocusLoss: false,
+      position: "top-center",
+    });
   };
 
   const modalMessage = "save";
@@ -79,12 +98,12 @@ const PostBlog = () => {
         </form>
       </div>
       <ModalComponent
-        blog={blog}
-        savePost={savePost}
+        confirmHandler={confirmHandler}
         modalMessage={modalMessage}
         modalIsOpen={modalIsOpen}
         setModalIsOpen={setModalIsOpen}
       />
+      <ToastContainer />
     </main>
   );
 };
