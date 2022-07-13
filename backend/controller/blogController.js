@@ -11,7 +11,6 @@ const getBlogs = (req, res) => {
 };
 
 // GET Request from ID
-
 const getBlogById = (req, res) => {
   const id = req.params.id;
   Blogs.findById(id)
@@ -51,7 +50,6 @@ const updateBlog = (req, res) => {
 };
 
 // DELETE Request
-
 const deleteBlog = (req, res) => {
   const id = req.params.id;
 
