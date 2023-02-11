@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Carousel } from "react-responsive-carousel";
 
-const FeaturedBlog = () => {
+const FeaturedBlog = ({ data }) => {
   const [randomBlogs, setRandomBlogs] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const FeaturedBlog = () => {
   }, []);
 
   const randomizedBlog = async () => {
-    const { data } = await axios.get("http://localhost:5000/blogs");
+    // const { data } = await axios.get("http://localhost:5000/blogs");
     const shuffled = data.sort(() => Math.random() - 0.5);
     setRandomBlogs(shuffled);
   };

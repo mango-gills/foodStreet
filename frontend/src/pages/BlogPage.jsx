@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 
@@ -7,6 +7,8 @@ import ModalComponent from "../components/ModalComponent";
 import Sidebar from "../components/Sidebar";
 
 const BlogPage = () => {
+  const location = useLocation();
+
   const [blogData, setBlogData] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [remove, setRemove] = useState(false);
@@ -21,7 +23,8 @@ const BlogPage = () => {
   }, []);
 
   const getBlogDataFromApi = async () => {
-    const { data } = await axios.get("http://localhost:5000/blogs/" + id);
+    // const { data } = await axios.get("http://localhost:5000/blogs/" + id);
+    const data = location.state?.data;
     setBlogData(data);
     setNewLocation(data.location);
     setImageUrl(data.image_url);
