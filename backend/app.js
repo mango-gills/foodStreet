@@ -26,6 +26,14 @@ app.use(
 );
 
 app.use(logger("dev"));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:5173/blog"],
+    method: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

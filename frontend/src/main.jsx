@@ -9,17 +9,25 @@ import Page404 from "./pages/Page404";
 import UpdateBlog from "./pages/UpdateBlog";
 import AllBlogs from "./pages/AllBlogs";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/all" element={<AllBlogs />} />
-      <Route path="/blogs" element={<PostBlog />} />
-      <Route path="/blogs/:id" element={<BlogPage />} />
-      <Route path="/update/:id" element={<UpdateBlog />} />
-      <Route path="*" element={<Page404 />} />
-    </Routes>
-  </BrowserRouter>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/all" element={<AllBlogs />} />
+          <Route path="/blog" element={<PostBlog />} />
+          <Route path="/blog/:id" element={<BlogPage />} />
+          <Route path="/update/:id" element={<UpdateBlog />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+      </BrowserRouter>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  </React.StrictMode>
 );

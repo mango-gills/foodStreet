@@ -2,10 +2,11 @@
   --primary-color: #ff7535;
   --secondary-color: #686767;
   --accents: #384e76;
+  --swiper-navigation-color: #fff;
 }
 
-body{
-  background:#fafafa;
+body {
+  background: #fafafa;
   overflow-x: hidden;
 }
 
@@ -16,7 +17,8 @@ body{
 
 /* Logo, User Signup & Login Section  */
 
-.nav-bar-top, .footer-logo {
+.nav-bar-top,
+.footer-logo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +26,8 @@ body{
   margin-top: 20px;
 }
 
-.nav-bar-top .logo , .footer-logo .logo {
+.nav-bar-top .logo,
+.footer-logo .logo {
   background: var(--primary-color);
   color: #fff;
   cursor: pointer;
@@ -90,11 +93,11 @@ span {
   margin: 10px 0;
   display: inline;
 }
-.blog-body-container{
+.blog-body-container {
   margin-bottom: 20px;
 }
 
-.blog-body-container h3{
+.blog-body-container h3 {
   color: #fff;
   background: var(--secondary-color);
   padding: 5px 10px;
@@ -106,42 +109,42 @@ span {
   font-size: 14px;
 }
 
-.blog-body-container{
+.blog-body-container {
   display: flex;
   justify-content: space-between;
 }
 
 .post-container {
   background: #fff;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   margin: 15px 0;
   padding: 10px;
   display: flex;
   align-items: center;
 }
 
-.thumbnail{
+.thumbnail {
   width: 140px;
   height: 140px;
   margin-right: 15px;
 }
 
-.thumbnail img{
+.thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   background-position: center;
 }
 
-.post-details{
+.post-details {
   width: 380px;
 }
 
-.post-details h1{
+.post-details h1 {
   font-size: 18px;
 }
 
-.post-details p{
+.post-details p {
   font-size: 14px;
   overflow: hidden;
   display: -webkit-box;
@@ -174,7 +177,7 @@ h3 {
   padding: 0 10px;
 }
 
-.new-blog-container input:nth-child(6){
+.new-blog-container input:nth-child(6) {
   border: 0;
   margin-top: 15px;
 }
@@ -254,16 +257,15 @@ input:focus {
 
 .blog-post-container {
   background: #fff;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   width: 570px;
   display: flex;
   flex-direction: column;
   margin: 15px 0;
   padding: 15px;
-  
 }
 
-.blog-image{
+.blog-image {
   height: 300px;
   object-fit: cover;
   background-position: center;
@@ -358,10 +360,9 @@ input:focus {
   width: 100%;
 }
 
-
 /* Footer Section */
 
-.footer-container{
+.footer-container {
   background: #686767;
   color: #fff;
   height: 150px;
@@ -372,37 +373,38 @@ input:focus {
   justify-content: space-around;
 }
 
-.footer-logo, .footer-text {
+.footer-logo,
+.footer-text {
   margin: 0;
 }
 
-.footer-text{
+.footer-text {
   margin-left: -20px;
 }
 
-.footer-text h4{
+.footer-text h4 {
   margin: 0;
 }
-.footer-text p{
+.footer-text p {
   margin: 3px 0;
   font-weight: 300;
 }
 
-.newsletter-container{
+.newsletter-container {
   height: 30px;
   background: #fff;
   display: flex;
   border-radius: 1px;
 }
 
-.newsletter-container input{
+.newsletter-container input {
   height: 100%;
   width: 220px;
   background: transparent;
   border: 0;
 }
 
-.newsletter-container button{
+.newsletter-container button {
   color: #fff;
   font-weight: bold;
   height: 100%;
@@ -412,33 +414,32 @@ input:focus {
 
 /* Sidebar section */
 
-.sidebar{
+.sidebar {
   width: 280px;
   height: 97.5%;
   margin: 15px 0;
 }
 
-.sidebar-box{
+.sidebar-box {
   background: #fff;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   padding: 5px 15px;
   margin-bottom: 10px;
 }
 
-.sidebar-box h3{
-background: var(--secondary-color);
-color: #fff;
-padding: 5px 10px;
-margin: 10px 0;
+.sidebar-box h3 {
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 5px 10px;
+  margin: 10px 0;
 }
 
-.social-link{
+.social-link {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 0;
-
 }
-.social-link li{
+.social-link li {
   list-style-type: none;
   margin: 3px;
   background: var(--accents);
@@ -451,35 +452,35 @@ margin: 10px 0;
   align-items: center;
 }
 
-.social-link li:hover{
-  background:#57709e;
+.social-link li:hover {
+  background: #57709e;
 }
 
-.social-link span{
-  margin: 0 5px ;
+.social-link span {
+  margin: 0 5px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.5) ;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.search-box{
+.search-box {
   background: #fff;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   padding: 10px;
   margin-bottom: 15px;
 }
 
-.search-box input{
+.search-box input {
   width: 250px;
   height: 20px;
 }
 
-.sidebar-posts h5{
+.sidebar-posts h5 {
   color: var(--accents);
   display: inline-block;
   margin: 0;
 }
 
-.sidebar-posts p{
+.sidebar-posts p {
   color: var(--secondary-color);
   margin: 6px 0;
   overflow: hidden;
@@ -489,45 +490,51 @@ margin: 10px 0;
   width: 90%;
 }
 
-.featured-blog{
+.featured-blog {
   background: #fff;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
-  height: 350px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  /* height: 450px; */
   width: 100%;
   margin-top: 15px;
   overflow: hidden;
   position: relative;
 }
 
-.featured-blog{
+.featured-blog {
   width: 100%;
   position: relative;
 }
 
-.featured-blog .carousel{
+/* .featured-blog .carousel {
   width: 100%;
   height: 350px;
   position: absolute;
   margin: 0 auto;
+} */
+
+.featured-blog img {
+  width: 100%;
+  height: 420px;
+  background-position: center;
+  object-fit: cover;
+  z-index: -1;
 }
 
-.featured-blog .carousel img{
-width: 100%;
-height: 350px;
-background-position: center;
-object-fit: cover;
+.slider-item {
+  position: relative;
+  height: 100%;
 }
 
-.carousel p{
+.slider-item p {
   position: absolute;
   color: #fff;
-  top: 200px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: left;
-  background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 100%);   
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 4%, rgba(0, 0, 0, 0) 96%);
   font-size: 40px;
-  padding: 10px 30px;
-  height: 120px;
+  padding: 60px 55px;
+  height: 160px;
 }

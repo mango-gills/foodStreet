@@ -9,34 +9,49 @@ import FeaturedBlog from "./components/FeaturedBlog";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
+import { useQuery } from "@tanstack/react-query";
+
 function App() {
   const [blogs, setBlogs] = useState([]);
 
-  useEffect(() => {
-    componentMount();
-  }, []);
+  // useEffect(() => {
+  //   componentMount();
+  // }, []);
 
-  const componentMount = async () => {
-    const { data } = await axios.get(
-      "https://food-street-api.herokuapp.com/blogs"
-    );
-    if (data) {
-      setBlogs(data);
-    }
-  };
+  // const componentMount = async () => {
+  //   const { data } = await axios.get("http://localhost:5000/blogs");
+  //   setBlogs(data);
+  // };
+
+  // try useQuery
+
+  const { data, status, isLoading, isError } = useQuery({
+    queryKey: ["blogs"],
+    queryFn: () =>
+      axios.get("http://localhost:5000/blogs").then((res) => res.data),
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error!</div>;
+  }
 
   return (
     <main className="App">
       <Navbar />
-      <FeaturedBlog />
+      <FeaturedBlog data={data} />
       <div className="blog-body-container">
         <div className="blog-list-container">
           <h3>Recent Posts</h3>
-          {blogs.slice(0, 5).map((post) => (
+          {data.slice(0, 5).map((post) => (
             <Link
               to={`/blogs/${post._id}`}
               className="blog-page-link"
               key={post._id}
+              state={{ data: post }}
             >
               <div className="post-container">
                 <div className="thumbnail">
@@ -50,6 +65,14 @@ function App() {
               </div>
             </Link>
           ))}
+          <div className="flex">
+            <button className="px-2 py-1 mr-4 bg-orange-500 rounded-sm previous">
+              Previous
+            </button>
+            <button className="px-5 py-1 mr-4 bg-orange-500 rounded-sm next">
+              Next
+            </button>
+          </div>
         </div>
         <Sidebar blogs={blogs} />
       </div>

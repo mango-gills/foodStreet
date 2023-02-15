@@ -1,9 +1,13 @@
 import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 
-import { Carousel } from "react-responsive-carousel";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import "swiper/swiper-bundle.min.css";
 
-const FeaturedBlog = () => {
+// import { Carousel } from "react-responsive-carousel";
+
+const FeaturedBlog = ({ data }) => {
   const [randomBlogs, setRandomBlogs] = useState([]);
 
   useEffect(() => {
@@ -11,9 +15,7 @@ const FeaturedBlog = () => {
   }, []);
 
   const randomizedBlog = async () => {
-    const { data } = await axios.get(
-      "https://food-street-api.herokuapp.com/blogs"
-    );
+    // const { data } = await axios.get("http://localhost:5000/blogs");
     const shuffled = data.sort(() => Math.random() - 0.5);
     setRandomBlogs(shuffled);
   };
@@ -21,27 +23,29 @@ const FeaturedBlog = () => {
   return (
     <div className="App">
       <div className="featured-blog">
-        <Carousel
-          showArrows={true}
-          autoPlay={true}
-          interval={2500}
-          infiniteLoop={true}
-          className="carousel"
-          transitionTime={1000}
-          animationHandler="fade"
-          showThumbs={false}
-          autoFocus={true}
-          showStatus={false}
-          useKeyboardArrows={true}
-          key={randomBlogs.length}
+        <Swiper
+          spaceBetween={50}
+          slidesPerGroup={1}
+          modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+          pagination={{ clickable: true }}
+          navigation
+          scrollbar={{ draggable: true }}
+          // onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
         >
           {randomBlogs.map((post) => (
-            <div key={post._id}>
-              <img src={post.image_url[0].image} alt="image" />
-              <p className="carousel-text">{post.title}</p>
-            </div>
+            <SwiperSlide key={post._id}>
+              <div className="slider-item">
+                <img src={post.image_url[0].image} alt="image" />
+                <p className="slider-text">{post.title}</p>
+              </div>
+            </SwiperSlide>
           ))}
-        </Carousel>
+        </Swiper>
       </div>
     </div>
   );
