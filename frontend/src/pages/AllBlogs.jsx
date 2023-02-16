@@ -14,7 +14,7 @@ const AllBlogs = () => {
 
   const componentMount = async () => {
     const { data } = await axios.get(
-      "https://food-street-api.herokuapp.com/blogs"
+      "https://foodstreet-api.onrender.com/blogs"
     );
     setBlogs(data);
   };

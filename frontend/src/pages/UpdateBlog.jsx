@@ -20,7 +20,7 @@ const UpdateBlog = () => {
 
   const getBlogDataFromApi = async () => {
     const { data } = await axios.get(
-      "https://food-street-api.herokuapp.com/blogs/" + id
+      "https://foodstreet-api.onrender.com/blogs/" + id
     );
     setBlogData(data);
     setTitle(data.title);
@@ -34,7 +34,7 @@ const UpdateBlog = () => {
     e.preventDefault();
 
     await axios.put(
-      "https://food-street-api.herokuapp.com/blogs/" + id,
+      "https://foodstreet-api.onrender.com/blogs/" + id,
       JSON.stringify({ username, title, body, location, image_url }),
       {
         headers: {
