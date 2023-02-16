@@ -31,7 +31,7 @@ const PostBlog = () => {
   const confirmHandler = async () => {
     createBlogSuccessful();
     await axios
-      .post("https://food-street-api.herokuapp.com/blogs", blog)
+      .post("https://foodstreet-api.onrender.com/blogs", blog)
       .then((res) => {});
     setTimeout(() => {
       window.location.reload();

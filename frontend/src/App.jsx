@@ -28,7 +28,9 @@ function App() {
   const { data, status, isLoading, isError } = useQuery({
     queryKey: ["blogs"],
     queryFn: () =>
-      axios.get("http://localhost:5000/blogs").then((res) => res.data),
+      axios
+        .get("https://foodstreet-api.onrender.com/blogs")
+        .then((res) => res.data),
   });
 
   if (isLoading) {
@@ -48,7 +50,7 @@ function App() {
           <h3>Recent Posts</h3>
           {data.slice(0, 5).map((post) => (
             <Link
-              to={`/blogs/${post._id}`}
+              to={`/blog/${post._id}`}
               className="blog-page-link"
               key={post._id}
               state={{ data: post }}

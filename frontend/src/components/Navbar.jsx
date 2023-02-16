@@ -23,7 +23,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/blogs"}>New Blog</Link>
+            <Link to={"/blog"}>New Blog</Link>
           </li>
         </ul>
         <ul className="right-links-container">

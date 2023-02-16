@@ -38,7 +38,7 @@ const BlogPage = () => {
 
   const confirmHandler = async () => {
     await axios
-      .delete("https://food-street-api.herokuapp.com/blogs/" + id, blog)
+      .delete("https://foodstreet-api.onrender.com/blogs/" + id, blog)
       .then((res) => {});
     deleteBlogSuccessful();
     setTimeout(() => {
