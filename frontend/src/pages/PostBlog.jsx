@@ -52,8 +52,6 @@ const PostBlog = () => {
 
   return (
     <main className="App">
-      <Navbar />
-
       <div className="new-blog-container">
         <h1>Add a new blog</h1>
 

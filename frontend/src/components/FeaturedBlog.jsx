@@ -21,32 +21,29 @@ const FeaturedBlog = ({ data }) => {
   };
 
   return (
-    <div className="App">
-      <div className="featured-blog">
-        <Swiper
-          spaceBetween={50}
-          slidesPerGroup={1}
-          modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
-          pagination={{ clickable: true }}
-          navigation
-          scrollbar={{ draggable: true }}
-          // onSwiper={(swiper) => console.log(swiper)}
-          // onSlideChange={() => console.log("slide change")}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-        >
-          {randomBlogs.map((post) => (
-            <SwiperSlide key={post._id}>
-              <div className="slider-item">
-                <img src={post.image_url[0].image} alt="image" />
-                <p className="slider-text">{post.title}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+    <div className="featured-blog">
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+        pagination={{ clickable: true }}
+        navigation
+        scrollbar={{ draggable: true }}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+      >
+        {randomBlogs.map((post) => (
+          <SwiperSlide key={post._id}>
+            <div className="slider-item">
+              <img src={post.image_url[0].image} alt="image" />
+              <p className="slider-text">{post.title}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

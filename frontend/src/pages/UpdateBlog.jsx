@@ -48,7 +48,6 @@ const UpdateBlog = () => {
 
   return (
     <main className="App">
-      <Navbar />
       <div className="new-blog-container">
         <h1>Update blog</h1>
 
