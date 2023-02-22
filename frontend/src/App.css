@@ -19,11 +19,8 @@ body {
 
 .nav-bar-top,
 .footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-  margin-top: 20px;
+  /* height: 70px; */
+  margin-top: 30px;
 }
 
 .nav-bar-top .logo,
@@ -31,8 +28,8 @@ body {
   background: var(--primary-color);
   color: #fff;
   cursor: pointer;
-  font-size: 30px;
-  padding: 5px 15px;
+  font-size: 25px;
+  padding: 3px 12px;
   text-decoration: none;
   box-shadow: -5px 5px 0px 0px rgb(56, 78, 118);
 }
@@ -537,4 +534,42 @@ input:focus {
   font-size: 40px;
   padding: 60px 55px;
   height: 160px;
+}
+
+.animated-bg {
+  background-image: linear-gradient(
+    to right,
+    #ebecec 0%,
+    #e0e0e0 10%,
+    #ebecec 20%,
+    #ebecec 100%
+  );
+  background-size: 200% 100%;
+  animation: bgPos 1.6s linear infinite;
+}
+
+.animated-bg-text {
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0;
+  height: 10px;
+  width: 100%;
+}
+
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+.swiper-pagination > .swiper-pagination-bullet {
+  background: #fff;
+}
+
+.swiper-pagination > .swiper-pagination-bullet-active {
+  background: var(--primary-color);
 }

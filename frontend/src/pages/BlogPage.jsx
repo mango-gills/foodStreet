@@ -61,8 +61,6 @@ const BlogPage = () => {
 
   return (
     <main className="App">
-      <Navbar />
-
       <div className="blog-body-container">
         <div className="blog-post-container">
           <img src={imageUrl[0]?.image} alt="image" className="blog-image" />

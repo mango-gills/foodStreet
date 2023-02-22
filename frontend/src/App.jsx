@@ -34,7 +34,7 @@ function App() {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="animated-bg">&nbsp;</div>;
   }
 
   if (isError) {
@@ -42,44 +42,45 @@ function App() {
   }
 
   return (
-    <main className="App">
-      <Navbar />
-      <FeaturedBlog data={data} />
-      <div className="blog-body-container">
-        <div className="blog-list-container">
-          <h3>Recent Posts</h3>
-          {data.slice(0, 5).map((post) => (
-            <Link
-              to={`/blog/${post._id}`}
-              className="blog-page-link"
-              key={post._id}
-              state={{ data: post }}
-            >
-              <div className="post-container">
-                <div className="thumbnail">
-                  <img src={post.image_url[0]?.image} alt="image" />
+    <>
+      <main className="App">
+        <FeaturedBlog data={data} />
+        <div className="blog-body-container">
+          <div className="blog-list-container">
+            <h3>Recent Posts</h3>
+            {data.slice(0, 5).map((post) => (
+              <Link
+                to={`/blog/${post._id}`}
+                className="blog-page-link"
+                key={post._id}
+                state={{ data: post }}
+              >
+                <div className="post-container">
+                  <div className="thumbnail">
+                    <img src={post.image_url[0]?.image} alt="image" />
+                  </div>
+                  <div className="post-details">
+                    <h1>{post.title}</h1>
+                    <p>{post.body}</p>
+                    <small>by {post.username}</small>
+                  </div>
                 </div>
-                <div className="post-details">
-                  <h1>{post.title}</h1>
-                  <p>{post.body}</p>
-                  <small>by {post.username}</small>
-                </div>
-              </div>
-            </Link>
-          ))}
-          <div className="flex">
-            <button className="px-2 py-1 mr-4 bg-orange-500 rounded-sm previous">
-              Previous
-            </button>
-            <button className="px-5 py-1 mr-4 bg-orange-500 rounded-sm next">
-              Next
-            </button>
+              </Link>
+            ))}
+            <div className="flex">
+              <button className="px-2 py-1 mr-4 bg-orange-500 rounded-sm previous">
+                Previous
+              </button>
+              <button className="px-5 py-1 mr-4 bg-orange-500 rounded-sm next">
+                Next
+              </button>
+            </div>
           </div>
+          <Sidebar blogs={blogs} />
         </div>
-        <Sidebar blogs={blogs} />
-      </div>
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   );
 }
 export default App;

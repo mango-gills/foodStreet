@@ -21,7 +21,6 @@ const AllBlogs = () => {
 
   return (
     <main className="App">
-      <Navbar />
       <div className="blog-body-container">
         <div className="blog-list-container">
           <h3>All Posts</h3>
