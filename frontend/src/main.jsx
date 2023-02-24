@@ -19,15 +19,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Layout></Layout>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/all" element={<AllBlogs />} />
-          <Route path="/blog" element={<PostBlog />} />
-          <Route path="/blog/:id" element={<BlogPage />} />
-          <Route path="/update/:id" element={<UpdateBlog />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/all" element={<AllBlogs />} />
+            <Route path="/blog" element={<PostBlog />} />
+            <Route path="/blog/:id" element={<BlogPage />} />
+            <Route path="/update/:id" element={<UpdateBlog />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        </Layout>
       </BrowserRouter>
       <ReactQueryDevtools />
     </QueryClientProvider>

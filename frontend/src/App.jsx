@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import axios from "axios";
 import "./App.css";
 import { Link } from "react-router-dom";
-import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import FeaturedBlog from "./components/FeaturedBlog";
 
@@ -34,7 +33,7 @@ function App() {
   });
 
   if (isLoading) {
-    return <div className="animated-bg">&nbsp;</div>;
+    return <div className="my-5 animated-bg">&nbsp;</div>;
   }
 
   if (isError) {
@@ -45,6 +44,7 @@ function App() {
     <>
       <main className="App">
         <FeaturedBlog data={data} />
+
         <div className="blog-body-container">
           <div className="blog-list-container">
             <h3>Recent Posts</h3>
@@ -78,7 +78,6 @@ function App() {
           </div>
           <Sidebar blogs={blogs} />
         </div>
-        <Footer />
       </main>
     </>
   );

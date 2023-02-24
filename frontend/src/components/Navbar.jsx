@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex items-end justify-center nav-bar-top w-[1200px] mx-auto mb-8">
+    <div className="flex items-end justify-center nav-bar-top w-[1400px] mx-auto mb-8">
       <NavLink to={"/"} className="logo">
         FoodStreet
       </NavLink>
