@@ -45,7 +45,6 @@ const AllBlogs = () => {
         </div>
         <Sidebar />
       </div>
-      <Footer />
     </main>
   );
 };
