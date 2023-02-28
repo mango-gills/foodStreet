@@ -45,7 +45,7 @@ function App() {
       <main className="App">
         <FeaturedBlog data={data} />
 
-        <div className="blog-body-container">
+        <div className="hidden blog-body-container">
           <div className="blog-list-container">
             <h3>Recent Posts</h3>
             {data.slice(0, 5).map((post) => (
@@ -76,7 +76,7 @@ function App() {
               </button>
             </div>
           </div>
-          <Sidebar blogs={blogs} />
+          {/* <Sidebar blogs={blogs} /> */}
         </div>
       </main>
     </>
