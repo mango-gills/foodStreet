@@ -5,7 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import ModalComponent from "../components/ModalComponent";
-import Sidebar from "../components/Sidebar";
 
 const BlogPage = () => {
   const location = useLocation();
@@ -62,13 +61,17 @@ const BlogPage = () => {
     <main className="App">
       <div className="blog-body-container">
         <div className="blog-post-container">
-          <img src={imageUrl[0]?.image} alt="image" className="blog-image" />
-          <h1>{title}</h1>
-          <small>by: {username}</small>
-          <small>{date}</small>
-          <p>{body}</p>
+          <img className="rounded-md" src={imageUrl[0]?.image} alt="image" />
+          <div className="my-3">
+            <h1 className="text-4xl">{title}</h1>
+            <div className="flex flex-col">
+              <small className="mr-2">by: {username}</small>
+              <small>posted on: {date?.split("T")[0]}</small>
+            </div>
+          </div>
+          <p className="mb-5">{body}</p>
+          <h3 className="mb-2 text-xl text-black">Location</h3>
           <div className="google-map-code">
-            <h3>Location</h3>
             <div
               dangerouslySetInnerHTML={{
                 __html: newLocation
@@ -78,7 +81,6 @@ const BlogPage = () => {
             />
           </div>
         </div>
-        <Sidebar />
       </div>
 
       <div className="update-delete-btn">
