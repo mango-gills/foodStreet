@@ -39,7 +39,7 @@ const FeaturedBlog = ({ data }) => {
             <div className="slider-item">
               <img src={post.image_url[0].image} alt="image" />
               <div className="px-20 py-10 slider-description">
-                <div
+                {/* <div
                   className="w-[500px] bg-black/90 p-8 rounded-lg
                 flex flex-col justify-between items-start"
                 >
@@ -48,7 +48,7 @@ const FeaturedBlog = ({ data }) => {
                   <button className="px-4 py-2 rounded-md bg-[#384e76] tracking-wider">
                     Read More
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>
