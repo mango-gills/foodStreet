@@ -1,27 +1,28 @@
 import React, { useState, useEffect, Component } from "react";
-import axios from "axios";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
-// import { Carousel } from "react-responsive-carousel";
-
-const FeaturedBlog = ({ data }) => {
+const FeaturedBlog = ({ data, isLoading }) => {
   const [randomBlogs, setRandomBlogs] = useState([]);
 
   useEffect(() => {
     randomizedBlog();
-  }, []);
+  }, [data]);
 
   const randomizedBlog = async () => {
-    // const { data } = await axios.get("http://localhost:5000/blogs");
-    const shuffled = data.sort(() => Math.random() - 0.5);
+    const shuffled = data?.sort(() => Math.random() - 0.5);
     setRandomBlogs(shuffled);
   };
 
   return (
-    <div className="mx-auto w-11/12 xl:w-full my-5 rounded-md featured-blog lg:h-[550px]">
+    <div className="w-11/12 xl:w-full mx-auto mt-5 mb-8 rounded-md featured-blog lg:h-[550px]">
+      {isLoading && (
+        <div className="w-full h-[350px] sm:h-[350px] md:h-[400px] lg:h-[550px] animated-bg">
+          &nbsp;
+        </div>
+      )}
+
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
@@ -34,7 +35,7 @@ const FeaturedBlog = ({ data }) => {
           disableOnInteraction: false,
         }}
       >
-        {randomBlogs.map((post) => (
+        {randomBlogs?.map((post) => (
           <SwiperSlide key={post._id}>
             <div className="slider-item">
               <img
@@ -45,7 +46,7 @@ const FeaturedBlog = ({ data }) => {
               <div className="p-6 xl:py-10 xl:px-20 slider-description">
                 <div
                   className="max-w-xs sm:max-w-sm lg:max-w-[500px] bg-black/90 p-4 md:p-8 rounded-lg
-                flex flex-col justify-between items-start"
+             flex flex-col justify-between items-start"
                 >
                   <h1 className="text-2xl leading-none tracking-wide sm:text-3xl md:text-4xl lg:text-5xl">
                     {post.title}
