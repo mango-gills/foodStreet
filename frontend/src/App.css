@@ -362,21 +362,15 @@ input:focus {
 .footer-container {
   background: #686767;
   color: #fff;
-  height: 150px;
-  width: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-around; */
 }
 
 .footer-logo,
 .footer-text {
   margin: 0;
-}
-
-.footer-text {
-  margin-left: -20px;
 }
 
 .footer-text h4 {

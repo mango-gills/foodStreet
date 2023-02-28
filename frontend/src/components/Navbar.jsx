@@ -8,6 +8,8 @@ const Navbar = () => {
     setNavIcon(!navIcon);
   };
 
+  console.log(navIcon);
+
   return (
     <div className="flex w-full px-5 items-center justify-between md:items-end md:justify-center nav-bar-top max-w-[1400px] mx-auto mb-8">
       <NavLink to={"/"} className="logo">
@@ -89,8 +91,8 @@ const Navbar = () => {
 
       <div
         className={`${
-          navIcon ? "-translate-x-0" : ""
-        } fixed translate-x-80 top-0 right-0 bg-white shadow-2xl w-[300px] h-screen z-10 md:hidden p-10 text-lg duration-200 ease-in`}
+          navIcon ? "translate-x-0" : "translate-x-80"
+        } fixed top-0 right-0 bg-white shadow-2xl w-[300px] h-screen z-10 md:hidden p-10 text-lg duration-200 ease-in`}
       >
         <ul className="space-y-3">
           <li>
