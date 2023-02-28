@@ -8,8 +8,6 @@ const Navbar = () => {
     setNavIcon(!navIcon);
   };
 
-  console.log(navIcon);
-
   return (
     <div className="flex w-full px-5 items-center justify-between md:items-end md:justify-center nav-bar-top max-w-[1400px] mx-auto mb-8">
       <NavLink to={"/"} className="logo">
