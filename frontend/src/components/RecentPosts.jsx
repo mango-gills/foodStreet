@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const RecentPosts = ({ data, isLoading }) => {
   return (
-    <div className="w-11/12 mx-auto xl:w-full xl:px-0">
+    <div className="w-11/12 mx-auto 2xl:w-full xl:px-0">
       <h3 className="mb-3 text-lg md:text-2xl">Recent Posts</h3>
 
       <div className="grid grid-cols-1 gap-5 mb-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -15,7 +15,7 @@ const RecentPosts = ({ data, isLoading }) => {
             state={{ data: post }}
           >
             <div
-              className="h-[180px] w-full bg-cover rounded-md bg-center"
+              className="h-[200px] sm:h-[160px] max-w-[400px] md:w-full bg-cover rounded-md bg-center mx-auto"
               style={{
                 backgroundImage: `url(${post.image_url[0]?.image})`,
               }}

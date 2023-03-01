@@ -532,10 +532,11 @@ input:focus {
   );
   background-size: 200% 100%;
   animation: bgPos 1.6s linear infinite;
+  animation-delay: 0.5s;
 }
 
 .animated-bg-text {
-  border-radius: 50px;
+  border-radius: 5px;
   display: inline-block;
   margin: 0;
   height: 10px;

@@ -43,7 +43,6 @@ const AllBlogs = () => {
             </Link>
           ))}
         </div>
-        <Sidebar />
       </div>
     </main>
   );
