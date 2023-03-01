@@ -5,7 +5,7 @@ Create post with text, images and even embed maps.
 
 ## Tech Stack
 
-**Client:** React\
+**Client:** ReactJs\
 **Server:** NodeJs, Express\
 **Database:** MongoDB
 
