@@ -115,15 +115,11 @@ span {
 }
 
 .post-details {
-  width: 380px;
-}
-
-.post-details h1 {
-  font-size: 18px;
+  /* max-width: 380px; */
 }
 
 .post-details p {
-  font-size: 14px;
+  /* font-size: 14px; */
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
