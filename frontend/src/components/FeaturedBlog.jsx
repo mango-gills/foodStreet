@@ -17,7 +17,7 @@ const FeaturedBlog = ({ data, isLoading }) => {
       let randIndex = Math.floor(Math.random() * (i + 1));
       [arr[randIndex], arr[i]] = [arr[i], arr[randIndex]];
     }
-    return arr;
+    return arr?.slice(0, 10);
   };
 
   const randomizedBlog = async () => {
