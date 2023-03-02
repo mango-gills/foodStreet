@@ -97,17 +97,17 @@ const Navbar = () => {
       <div
         className={`${
           navIcon ? "translate-x-0" : "translate-x-80"
-        } shadow-2xl w-full fixed right-0 top-0 z-10 md:hidden text-lg duration-200 ease-in`}
+        } w-full fixed right-0 top-0 z-10 md:hidden text-lg duration-200 ease-in`}
       >
         {/* overlay */}
         <div
           className={`${
             navIcon ? "translate-x-0" : "translate-x-96"
-          } absolute w-full h-screen bg-black/25 duration-300 ease-in`}
+          } absolute w-full h-screen bg-black/5 duration-300 ease-in backdrop-blur-sm`}
           onClick={hideMenu}
         ></div>
 
-        <div className="h-screen w-[300px] fixed top-0 right-0 bg-white flex px-5 py-8  justify-between">
+        <div className="h-screen w-[300px] fixed top-0 right-0 bg-white flex px-5 py-8  justify-between shadow-2xl shadow-black">
           <ul className="space-y-3">
             <li>
               <NavLink onClick={hideMenu} to={"/"}>
