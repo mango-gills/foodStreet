@@ -8,6 +8,10 @@ const Navbar = () => {
     setNavIcon(!navIcon);
   };
 
+  const hideMenu = () => {
+    setNavIcon(false);
+  };
+
   return (
     <div className="flex w-full px-5 items-center justify-between md:items-end md:justify-center nav-bar-top max-w-[1400px] mx-auto mb-8">
       <NavLink to={"/"} className="logo">
@@ -53,7 +57,8 @@ const Navbar = () => {
       </div>
 
       {/* mobile menu icons */}
-      <div className="z-50 md:hidden" onClick={handleMenuClick}>
+
+      <div className="md:hidden">
         {navIcon ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +67,7 @@ const Navbar = () => {
             strokeWidth="1.5"
             stroke="currentColor"
             className="text-[#284B7C] w-10 h-10 cursor-pointer hover:text-orange-500 ease-in duration-150"
+            onClick={handleMenuClick}
           >
             <path
               strokeLinecap="round"
@@ -77,6 +83,7 @@ const Navbar = () => {
             strokeWidth="1.5"
             stroke="currentColor"
             className="text-[#284B7C] w-10 h-10 cursor-pointer hover:text-orange-500 ease-in duration-150"
+            onClick={handleMenuClick}
           >
             <path
               strokeLinecap="round"
@@ -90,22 +97,52 @@ const Navbar = () => {
       <div
         className={`${
           navIcon ? "translate-x-0" : "translate-x-80"
-        } fixed top-0 right-0 bg-white shadow-2xl w-[300px] h-screen z-10 md:hidden p-10 text-lg duration-200 ease-in`}
+        } shadow-2xl w-full fixed right-0 top-0 z-10 md:hidden text-lg duration-200 ease-in`}
       >
-        <ul className="space-y-3">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Featured</a>
-          </li>
-          <li>
-            <a href="#">Categories</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-        </ul>
+        {/* overlay */}
+        <div
+          className={`${
+            navIcon ? "translate-x-0" : "translate-x-96"
+          } absolute w-full h-screen bg-black/25 duration-300 ease-in`}
+          onClick={hideMenu}
+        ></div>
+
+        <div className="h-screen w-[300px] fixed top-0 right-0 bg-white flex px-5 py-8  justify-between">
+          <ul className="space-y-3">
+            <li>
+              <NavLink onClick={hideMenu} to={"/"}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={hideMenu} to={"/all"}>
+                Featured
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={hideMenu}>Categories</NavLink>
+            </li>
+            <li>
+              <NavLink onClick={hideMenu}>About</NavLink>
+            </li>
+          </ul>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="text-[#284B7C] w-10 h-10 cursor-pointer hover:text-orange-500 ease-in duration-150"
+            onClick={handleMenuClick}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   );
